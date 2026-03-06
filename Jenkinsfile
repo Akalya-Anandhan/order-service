@@ -2,11 +2,10 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'
+        maven 'Maven3'
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
@@ -18,15 +17,6 @@ pipeline {
                 bat 'mvn clean package'
             }
         }
-
-    }
-
-    post {
-        success {
-            echo 'Build Successful'
-        }
-        failure {
-            echo 'Build Failed'
-        }
     }
 }
+  
